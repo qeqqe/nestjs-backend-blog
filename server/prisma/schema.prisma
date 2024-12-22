@@ -21,15 +21,27 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   Blog      Blog[]
+  role      Role     @default(USER)
 }
 
 model Blog {
-  id          String   @id @default(cuid())
+  id          String     @id @default(cuid())
   title       String
-  description String?
+  description String
   content     String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
   userId      String
-  User        User     @relation(fields: [userId], references: [id])
+  User        User       @relation(fields: [userId], references: [id])
+  status      blogStatus @default(DRAFT)
+}
+
+enum blogStatus {
+  PUBLISHED
+  DRAFT
+}
+
+enum Role {
+  USER
+  ADMIN
 }
