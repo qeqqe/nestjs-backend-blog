@@ -1,10 +1,12 @@
 import "@/styles/globals.css";
 import { Providers } from "./providers";
 import { Metadata } from "next";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 
 export const metadata: Metadata = {
-  title: "Blog App",
-  description: "Blog application with Next.js and NestJS",
+  title: "Write.",
+  description: "A minimal writing platform",
 };
 
 export default function RootLayout({
@@ -13,9 +15,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${GeistSans.variable} ${GeistMono.variable}`}
+    >
       <head />
-      <body>
+      <body className="antialiased">
         <Providers
           themeProps={{
             attribute: "class",

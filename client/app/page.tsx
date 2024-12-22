@@ -1,40 +1,42 @@
 import { Button } from "@nextui-org/button";
-import { Card } from "@nextui-org/card";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 via-violet-800 to-blue-900">
-      <Card className="w-full max-w-lg mx-4 p-8 bg-black/40 backdrop-blur-md border border-white/10">
-        <div className="text-center space-y-6">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            Welcome to Blogify
-          </h1>
+    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-zinc-900 to-zinc-800">
+      <div className="max-w-lg mx-4 text-center space-y-8">
+        <h1 className="text-6xl font-normal tracking-tight text-white font-mono">
+          write<span className="text-neutral-600">.</span>
+        </h1>
 
-          <p className="text-lg text-gray-300">
-            Share your stories, ideas, and experiences with the world.
-          </p>
+        <p className="text-lg text-neutral-400 font-light tracking-wide">
+          Same fucking blog app for the millionth time but w new framework
+        </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+          <Link href="/register">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold"
+              className="bg-white text-black hover:bg-neutral-200 font-medium transition-colors"
             >
-              Get Started
+              Start writing
             </Button>
+          </Link>
+          <Link href={"/login"}>
             <Button
               size="lg"
               variant="bordered"
-              className="border-white/30 text-white"
+              className="border-neutral-800 text-neutral-300 hover:border-neutral-700"
             >
-              Sign In
+              Sign in
             </Button>
-          </div>
-
-          <p className="text-sm text-gray-400 mt-8">
-            Join our community of writers and readers today!
-          </p>
+          </Link>
         </div>
-      </Card>
+
+        <p className="text-sm text-neutral-600 pt-4 font-mono">
+          No distractions. Just write.
+        </p>
+      </div>
     </main>
   );
 }
